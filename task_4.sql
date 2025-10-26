@@ -1,15 +1,5 @@
--- Script to display full description of the books table from alx_book_store database
-SELECT 
-    COLUMN_NAME AS 'Field',
-    COLUMN_TYPE AS 'Type',
-    IS_NULLABLE AS 'Null',
-    COLUMN_KEY AS 'Key',
-    COLUMN_DEFAULT AS 'Default',
-    EXTRA AS 'Extra'
-FROM 
-    INFORMATION_SCHEMA.COLUMNS
-WHERE 
-    TABLE_SCHEMA = DATABASE()
-    AND TABLE_NAME = 'books'
-ORDER BY 
-    ORDINAL_POSITION;
+-- Prints the full description of the table books from the database
+-- alx_book_store without using DESCRIBE or EXPLAIN.
+-- The database name will be passed as an argument of the mysql command.
+
+SHOW FULL COLUMNS FROM books;
