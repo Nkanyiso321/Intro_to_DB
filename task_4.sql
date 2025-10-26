@@ -1,5 +1,15 @@
--- Prints the full description of the table books from the database
--- alx_book_store without using DESCRIBE or EXPLAIN.
--- The database name will be passed as an argument of the mysql command.
+-- task_4.sql
+-- Script to print the full description of the table books
+-- from the database alx_book_store without using DESCRIBE or EXPLAIN
 
-SHOW FULL COLUMNS FROM books;
+SELECT 
+    COLUMN_NAME,
+    COLUMN_TYPE,
+    IS_NULLABLE,
+    COLUMN_KEY,
+    COLUMN_DEFAULT,
+    EXTRA
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = 'alx_book_store'
+  AND TABLE_NAME = 'books';
+
