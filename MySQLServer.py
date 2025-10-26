@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A script that connects to a MySQL server and creates the database
-hbtn_0c_0.
+A script that connects to a MySQL server and creates the 
+database alx_book_store.
 """
 
 import mysql.connector
@@ -28,20 +28,19 @@ def create_database():
         
         cursor = db_connection.cursor()
         
-        # Create the database using "IF NOT EXISTS" to satisfy the requirement
-        # that the script should not fail if the DB already exists.
-        # This command avoids using "SELECT" or "SHOW".
+        # This command creates the DB ONLY if it does not exist.
+        # It does NOT use "SELECT" or "SHOW".
         cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
         
         # Print the required success message
         print("Database 'alx_book_store' created successfully!")
 
     except Error as err:
-        # Handle errors, such as connection failures
+        # This handles all exceptions, including connection errors
         print(f"Error: {err}")
         
     finally:
-        # Ensure the database connection is properly closed
+        # This handles closing the connection
         if cursor:
             cursor.close()
         if db_connection and db_connection.is_connected():
